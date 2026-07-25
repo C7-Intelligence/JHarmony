@@ -185,6 +185,7 @@
     display:grid;grid-template-columns:1fr 1fr;gap:clamp(1rem,2.5vw,1.8rem);
     margin-top:2rem;
   }
+  .ba-trio{grid-template-columns:repeat(3,1fr)}
   .ba-fig{position:relative;border:1px solid var(--hairline);padding:.6rem;background:linear-gradient(180deg,rgba(201,169,106,.05),transparent 60%)}
   .ba-fig img{display:block;width:100%;height:auto}
   .ba-tag{
@@ -198,7 +199,8 @@
     margin:3.2rem auto 0;text-align:center;max-width:640px;
     color:var(--stone);font-size:.8rem;letter-spacing:.06em;
   }
-  @media (max-width:640px){.ba-pair{grid-template-columns:1fr}}
+  @media (max-width:860px){.ba-trio{grid-template-columns:1fr 1fr}}
+  @media (max-width:640px){.ba-pair,.ba-trio{grid-template-columns:1fr}}
 
   /* ---------- Membership ---------- */
   .membership{background:var(--panel)}
@@ -377,16 +379,20 @@
     <div class="results-wrap">
 
       <div class="case-block reveal">
-        <h3 class="case-title">Medical Weight Loss</h3>
-        <p class="case-note">−35 lbs in 90 days under physician-guided care.</p>
-        <div class="ba-pair">
+        <h3 class="case-title">Medical Weight Loss &amp; Hormone Optimization</h3>
+        <p class="case-note">Physician-guided GLP-1 therapy with hormone replacement. −35 lbs at 90 days, with continued progress through five months.</p>
+        <div class="ba-pair ba-trio">
           <figure class="ba-fig">
             <span class="ba-tag">Before</span>
             <img src="assets/wl-before.jpg" alt="Member before physician-guided weight loss program" loading="lazy">
           </figure>
           <figure class="ba-fig">
-            <span class="ba-tag">After · 90 Days</span>
+            <span class="ba-tag">90 Days</span>
             <img src="assets/wl-after.jpg" alt="Member after losing 35 pounds in 90 days" loading="lazy">
+          </figure>
+          <figure class="ba-fig">
+            <span class="ba-tag">5 Months</span>
+            <img src="assets/wl-5mo.jpg" alt="Member at five months on GLP-1 therapy and hormone replacement" loading="lazy">
           </figure>
         </div>
       </div>
