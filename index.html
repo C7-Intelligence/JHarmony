@@ -66,13 +66,20 @@
     color:var(--ivory);text-decoration:none;white-space:nowrap;
   }
   .brand span{color:var(--gold)}
-  nav{display:flex;gap:clamp(1rem,3vw,2.4rem)}
+  nav{display:flex;align-items:center;gap:clamp(1rem,2vw,2rem)}
   nav a{
+    white-space:nowrap;
     color:var(--stone);text-decoration:none;
     font-size:.74rem;letter-spacing:.28em;text-transform:uppercase;
     transition:color .25s ease;
   }
   nav a:hover,nav a:focus-visible{color:var(--gold)}
+  nav a.nav-login{
+    color:var(--gold);border:1px solid var(--hairline);
+    padding:.5rem 1rem;margin:-.5rem 0;
+    transition:background .3s ease,color .3s ease;
+  }
+  nav a.nav-login:hover,nav a.nav-login:focus-visible{background:var(--gold);color:var(--ink)}
   a:focus-visible{outline:1px solid var(--gold);outline-offset:4px}
   .nav-toggle{display:none}
 
@@ -167,6 +174,82 @@
   .pillar p{
     color:var(--stone);font-size:.92rem;max-width:46%;text-align:right;
   }
+
+  /* ---------- Alma Hybrid ---------- */
+  .alma{border-top:1px solid rgba(201,169,106,.12)}
+  .alma-grid{
+    max-width:1000px;margin:3.5rem auto 0;
+    display:grid;grid-template-columns:5fr 7fr;gap:clamp(1.5rem,4vw,3rem);align-items:center;
+  }
+  .alma-unit img{display:block;width:100%;height:auto}
+  .alma-copy h3{font-size:clamp(1.5rem,3.2vw,2.1rem);letter-spacing:.06em}
+  .alma-copy p{margin-top:1.1rem;color:var(--stone);font-size:1rem}
+  .alma-points{list-style:none;margin-top:1.6rem;border-top:1px solid var(--hairline)}
+  .alma-points li{
+    padding:.85rem .25rem;border-bottom:1px solid var(--hairline);
+    color:var(--stone);font-size:.94rem;
+  }
+  .alma-points strong{color:var(--ivory);font-weight:400}
+  .proscan{max-width:1000px;margin:3rem auto 0}
+  .proscan img{background:#fff}
+  .proscan figcaption{
+    margin-top:.9rem;text-align:center;color:var(--stone);font-size:.86rem;
+  }
+
+  /* ---------- Member Portal ---------- */
+  .portal{background:var(--panel)}
+  .portal h2{font-size:clamp(2rem,5vw,3.2rem);letter-spacing:.06em;font-weight:400}
+  .portal .measure > p:not(.eyebrow){margin-top:1.8rem;color:var(--stone);font-size:1.06rem}
+  .source-grid{
+    max-width:1000px;margin:3.5rem auto 0;
+    display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(1rem,2.5vw,1.8rem);
+  }
+  .source{
+    border:1px solid var(--hairline);padding:2rem 1.6rem;text-align:center;
+    background:linear-gradient(180deg,rgba(201,169,106,.05),transparent 60%);
+  }
+  .source .num{
+    font-family:'Cormorant Garamond',serif;font-size:1.6rem;color:var(--gold);letter-spacing:.1em;
+  }
+  .source h3{font-size:1.45rem;letter-spacing:.05em;margin-top:.4rem}
+  .source p{margin-top:.7rem;color:var(--stone);font-size:.92rem}
+  .portal-shots{
+    max-width:1000px;margin:2.5rem auto 0;
+    display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(1rem,2.5vw,1.8rem);
+  }
+  .portal-shots a{display:block}
+  .portal-shots figcaption{
+    margin-top:.7rem;text-align:center;
+    font-size:.66rem;letter-spacing:.3em;text-transform:uppercase;color:var(--gold);
+  }
+  .portal-note{
+    margin:2rem auto 0;text-align:center;max-width:640px;
+    color:var(--stone);font-size:.8rem;letter-spacing:.06em;
+  }
+  .portal-cta{text-align:center}
+
+  /* ---------- Team ---------- */
+  .team-grid{
+    max-width:900px;margin:3.5rem auto 0;
+    display:grid;grid-template-columns:1fr 1fr;gap:clamp(2rem,5vw,4rem);
+  }
+  .member{text-align:center}
+  .member-photo{
+    width:min(240px,70%);aspect-ratio:1;margin:0 auto;
+    border-radius:50%;overflow:hidden;
+    border:1px solid var(--gold-dim);padding:.4rem;
+  }
+  .member-photo img{
+    display:block;width:100%;height:100%;border-radius:50%;
+    object-fit:cover;object-position:50% 20%;
+  }
+  .member-photo img.round-crop{object-position:50% 51%;transform:scale(1.03)}
+  .member h3{font-size:clamp(1.6rem,3.4vw,2.1rem);letter-spacing:.05em;margin-top:1.6rem}
+  .member .role{
+    margin-top:.4rem;
+    font-size:.72rem;letter-spacing:.3em;text-transform:uppercase;color:var(--gold);
+  }
+  .member .bio{margin-top:1.1rem;color:var(--stone);font-size:.98rem}
 
   /* ---------- Results ---------- */
   .results-wrap{max-width:1000px;margin:0 auto}
@@ -273,7 +356,12 @@
   }
 
   /* ---------- Responsive ---------- */
-  @media (max-width:760px){
+  @media (max-width:860px){
+    .alma-grid,.source-grid,.portal-shots{grid-template-columns:1fr}
+    .alma-unit{max-width:360px;margin:0 auto}
+  }
+  @media (max-width:640px){.team-grid{grid-template-columns:1fr}}
+  @media (max-width:1240px){
     nav{display:none}
     .nav-toggle{
       display:block;background:none;border:1px solid var(--hairline);
@@ -282,10 +370,13 @@
       font-family:'Jost',sans-serif;
     }
     nav.open{
-      display:flex;flex-direction:column;position:absolute;top:100%;right:0;left:0;
+      display:flex;flex-direction:column;align-items:flex-start;position:absolute;top:100%;right:0;left:0;
       background:rgba(18,17,16,.97);padding:1.4rem 2rem;gap:1.1rem;
       border-bottom:1px solid var(--hairline);
     }
+    nav.open a.nav-login{margin:0;align-self:flex-start}
+  }
+  @media (max-width:760px){
     .pillar{flex-direction:column;align-items:flex-start;gap:.5rem}
     .pillar p{max-width:100%;text-align:left}
     .reviews-grid,.contact-grid{grid-template-columns:1fr}
@@ -300,9 +391,13 @@
   <nav id="mainnav">
     <a href="#membership">Membership</a>
     <a href="#services">Services</a>
+    <a href="#alma-hybrid">Alma Hybrid</a>
+    <a href="#portal">Portal</a>
     <a href="#results">Results</a>
+    <a href="#team">Team</a>
     <a href="#reviews">Reviews</a>
     <a href="#contact">Contact</a>
+    <a class="nav-login" href="https://app.j-harmony.com">Patient Login</a>
   </nav>
 </header>
 
@@ -369,6 +464,76 @@
     </div>
   </section>
 
+  <!-- Alma Hybrid -->
+  <section class="alma" id="alma-hybrid">
+    <div class="measure reveal">
+      <p class="eyebrow">Aesthetic Technology</p>
+      <hr class="rule">
+      <h2 class="serif" style="font-size:clamp(1.8rem,4vw,2.6rem)">The Alma Hybrid.</h2>
+    </div>
+    <div class="alma-grid">
+      <figure class="alma-unit reveal">
+        <img src="assets/alma.png" alt="Alma Hybrid laser system with its welcome screen and handpiece" loading="lazy">
+      </figure>
+      <div class="alma-copy reveal">
+        <h3>Two lasers. One treatment, tuned to you.</h3>
+        <p>J Harmony treats with the Alma Hybrid, a skin resurfacing platform that pairs an ablative CO<sub>2</sub> laser with a non-ablative 1570&nbsp;nm laser. Your provider sets the blend of the two for your skin and your goals, from a light refresh to deeper resurfacing.</p>
+        <ul class="alma-points">
+          <li><strong>Resurfacing</strong> — texture, tone, fine lines, and sun damage.</li>
+          <li><strong>Repair</strong> — scars, including acne scarring.</li>
+          <li><strong>Planned with you</strong> — scheduled and followed up by your care team.</li>
+        </ul>
+      </div>
+    </div>
+    <figure class="proscan ba-fig reveal">
+      <img src="assets/proscan.png" alt="Exploded view of the Alma ProScan handpiece" loading="lazy">
+      <figcaption>The ProScan handpiece places each laser pulse in a precise, repeatable pattern.</figcaption>
+    </figure>
+  </section>
+
+  <!-- Member Portal -->
+  <section class="portal" id="portal">
+    <div class="measure reveal">
+      <p class="eyebrow">AI-Powered Patient Portal</p>
+      <hr class="rule">
+      <h2 class="serif">Your health, in one view.</h2>
+      <p>Every member gets a private portal, powered by OpenAI. It brings your health data together from three sources, tracks how each measure trends over time, and alerts your care team when something changes — all guided by our medical staff.</p>
+    </div>
+    <div class="source-grid">
+      <div class="source reveal">
+        <p class="num">01</p>
+        <h3>Blood &amp; Diagnostics</h3>
+        <p>Lab panels and diagnostic results, charted against the lab's own ranges.</p>
+      </div>
+      <div class="source reveal">
+        <p class="num">02</p>
+        <h3>In-Person Visits</h3>
+        <p>Vitals and findings from your visits with the J Harmony care team.</p>
+      </div>
+      <div class="source reveal">
+        <p class="num">03</p>
+        <h3>Wearables</h3>
+        <p>Day-to-day readings from the devices you already wear.</p>
+      </div>
+    </div>
+    <div class="portal-shots">
+      <figure class="ba-fig reveal">
+        <a href="assets/Portal3.png" target="_blank" rel="noopener"><img src="assets/Portal3.png" alt="Member portal showing a twelve-month weight trend, sample data" loading="lazy"></a>
+        <figcaption>Weight Trend</figcaption>
+      </figure>
+      <figure class="ba-fig reveal">
+        <a href="assets/Portal2.png" target="_blank" rel="noopener"><img src="assets/Portal2.png" alt="Member portal showing a hematocrit trend with a result flagged high by the lab, sample data" loading="lazy"></a>
+        <figcaption>Lab Alerting</figcaption>
+      </figure>
+      <figure class="ba-fig reveal">
+        <a href="assets/Portal1.png" target="_blank" rel="noopener"><img src="assets/Portal1.png" alt="Member portal showing a total testosterone trend, sample data" loading="lazy"></a>
+        <figcaption>Hormone Trend</figcaption>
+      </figure>
+    </div>
+    <p class="portal-note reveal">Screens show sample data. Every AI-generated insight is reviewed by J Harmony medical staff before it reaches you.</p>
+    <p class="portal-cta reveal"><a class="hero-cta" href="https://app.j-harmony.com">Patient Login</a></p>
+  </section>
+
   <!-- Results -->
   <section id="results">
     <div class="measure reveal">
@@ -416,6 +581,29 @@
     </div>
   </section>
 
+  <!-- Team -->
+  <section class="membership" id="team">
+    <div class="measure reveal">
+      <p class="eyebrow">Your Care Team</p>
+      <hr class="rule">
+      <h2 class="serif" style="font-size:clamp(1.8rem,4vw,2.6rem)">The people behind your care.</h2>
+    </div>
+    <div class="team-grid">
+      <div class="member reveal">
+        <div class="member-photo"><img class="round-crop" src="assets/RL-Headshot-RoundCrop.jpg" alt="Regine Lapitan" loading="lazy"></div>
+        <h3>Regine Lapitan</h3>
+        <p class="role">J Harmony Care Team</p>
+        <p class="bio">Regine cares for J Harmony members across wellness and aesthetics, building each plan around the member's own goals and following it through visit by visit.</p>
+      </div>
+      <div class="member reveal">
+        <div class="member-photo"><img src="assets/KV_Headshot.jpg" alt="Kacy Voltmer, FNP-C" loading="lazy"></div>
+        <h3>Kacy Voltmer, FNP-C</h3>
+        <p class="role">Nurse Practitioner</p>
+        <p class="bio">Kacy is a board-certified family nurse practitioner. She sees J Harmony members for proactive care, reviewing their labs, visits, and trends to keep each plan on track.</p>
+      </div>
+    </div>
+  </section>
+
   <!-- Reviews -->
   <section id="reviews">
     <div class="measure reveal">
@@ -430,6 +618,14 @@
       <div class="review reveal">
         <blockquote>I've poured a fortune into my health and beauty over the years... until J Harmony finally put it all under one roof. One service. One vision. Total control. This is the future I've been waiting for.</blockquote>
         <cite>— Jane, Cerritos</cite>
+      </div>
+      <div class="review reveal">
+        <blockquote>I've lost nearly 90 lbs in 8 months thanks to the advice of J Harmony. I was once at nearly 300 lbs and now nearly to my goal weight. To say it's been life-changing would be an understatement.</blockquote>
+        <cite>— Stephen, Los Angeles</cite>
+      </div>
+      <div class="review reveal">
+        <blockquote>After 3 treatments with the Alma Hybrid, my skin is on its way to being repaired. Getting treatment done while overlooking beautiful Beverly Hills made it quite pleasant.</blockquote>
+        <cite>— Bernie, Universal City</cite>
       </div>
     </div>
     <p class="promise reveal">Delivering elite anti-aging, aesthetics, wellness, and proactive care — powered by cutting-edge science, unmatched service, and real results.</p>
