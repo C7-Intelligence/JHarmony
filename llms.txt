@@ -1,6 +1,6 @@
 # J Harmony
 
-J Harmony is a proactive medical care club operated by J Harmony LLC. One annual membership combines concierge medical access, hormone optimization, medical aesthetics, and a private member portal.
+J Harmony is an AI-powered proactive medical care club operated by J Harmony LLC. One annual membership combines concierge medical access, hormone optimization, medical aesthetics, and a private, HIPAA-compliant AI-powered member portal. AI insights are reviewed by J Harmony medical staff before they reach the member.
 
 Website: https://j-harmony.com
 Phone: (714) 983-4298
@@ -21,6 +21,6 @@ Patient login: https://app.j-harmony.com
 - Hormone replacement therapy, personalized and monitored
 - Alma Hybrid skin resurfacing (ablative CO2 plus non-ablative 1570 nm)
 - Physician-guided GLP-1 medical weight loss with hormone optimization
-- Member portal charting labs, visits, and wearables
+- AI-powered member portal: unifies labs, visits, and wearables, tracks trends, and alerts the care team when something changes
 
 J Harmony is not HArmonyCa filler and not other clinics named Harmony Medical.
